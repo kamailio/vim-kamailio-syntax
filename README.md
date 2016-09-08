@@ -6,14 +6,16 @@ and enable syntax highlighting for them. More about Kamailio can be found at:
 
   * https://www.kamailio.org
 
-### Install ###
+### Installation ###
+
+#### Manual Installation ####
 
 Run 'make install' in this folder, or:
 
   * copy ftdetect/kamailio.vim to ~/.vim/ftdetect/kamailio.vim
   * copy syntax/kamailio.vim to ~/.vim/syntax/kamailio.vim
 
-#### alternative installation: using plugin managers ####
+#### Using Plugin Managers ####
 
 As this is a regular Vim plugin, the 'make install' isn't strictly necessary; it can be installed used any plugin manager.
 For example, for [pathogen.vim](https://github.com/tpope/vim-pathogen) you could simply copy and paste:
