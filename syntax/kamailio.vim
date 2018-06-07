@@ -30,7 +30,9 @@ syn match	kamailioConfigModule		'^\s*loadmodule\s*"[^"]\+"' contains=kamailioStr
 
 syn keyword	kamailioTodo	TODO FIXME XXX contained
 
-syn match	kamailioOperator		'!\|&&\|||\|=[~=]\?\|>\|<\|+\|-\|/\|\*\||\|&\|^\|\~\|defined\|eq\|ieq\|ne\|ine\|mod\|and\|or\|not' display contained
+syn match	kamailioOperator		'!\|&&\|||\|=[~=]\?\|>\|<\|+\|-\|/\|\*\||\|&\|^\|\~' display contained
+
+syn keyword	kamailioOperatorWord  defined eq ieq ne ine mod and or not contained
 
 syn region	kamailioCppComment		start='/\*' end='\*/' contains=kamailioTodo
 syn match	kamailioHashDefine	'#!define\s\|#!ifdef\s\|#!ifndef\s\|#!endif\|#!else\|#!substdef\|#!substdefs\|#!subst\|#!trydef\|#!trydefine\|#!redef\|#!redefine\|!!define\s\|!!ifdef\s\|!!ifndef\s\|!!endif\|!!else\|!!substdef\|!!substdefs\|!!subst\|!!trydef\|!!trydefine\|!!redef\|!!redefine\|#!KAMAILIO\|#!OPENSER\|#!SER\|#!MAXCOMPAT\|#!ALL\|#!include_file\|#!import_file\|!!include_file\|!!import_file'
@@ -59,7 +61,7 @@ syn region	kamailioBlock	start='{' end='}' contained contains=kamailioBlock,@kam
 syn match	kamailioRouteBlock	'\(failure_\|onreply_\|branch_\|event_\|onsend_\|request_\|reply_\)\?route\(\s*\[[^\]]\+\]\)\?' contained contains=kamailioNumber,kamailioString,kamailioIdentifier
 syn region	kamailioRrouteBlockFold	matchgroup=kamailioRouteBlock start="\(failure_\|onreply_\|branch_\|event_\|onsend_\|request_\|reply_\)\?route\(\s*\[[^\]]\+\]\)\?\s*\n\?{" matchgroup=NONE end="}" contains=kamailioBlock,@kamailioCodeElements
 
-syn cluster	kamailioCodeElements contains=kamailioHashDefine,kamailioCppComment,kamailioHashComment,kamailioSlashSlashComment,kamailioNumber,kamailioString,kamailioVariable,kamailioOperator,kamailioStatement,kamailioKeyword,kamailioCoreKeyword,kamailioCoreValue,kamailioCoreFunction,kamailioIdentifier
+syn cluster	kamailioCodeElements contains=kamailioHashDefine,kamailioCppComment,kamailioHashComment,kamailioSlashSlashComment,kamailioNumber,kamailioString,kamailioVariable,kamailioOperator,kamailioOperatorWord,kamailioStatement,kamailioKeyword,kamailioCoreKeyword,kamailioCoreValue,kamailioCoreFunction,kamailioIdentifier
 
 hi def link kamailioCppComment Comment
 hi def link kamailioHashComment Comment
@@ -81,6 +83,7 @@ hi def link kamailioSpecial Special
 hi def link kamailioCoreParameter Keyword
 
 hi def link kamailioOperator Operator
+hi def link kamailioOperatorWord Operator
 
 hi def link kamailioStatement Conditional
 
