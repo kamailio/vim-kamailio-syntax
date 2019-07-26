@@ -2,7 +2,7 @@
 " FILE: kamailio.vim
 " (C) Copyright 2008 Stanisław Pitucha <viraptor@gmail.com>
 " (C) Copyright 2009-2018 Daniel-Constantin Mierla <miconda@gmail.com>
-" Version: 1.04
+" Version: 1.05
 
 " USAGE:
 "
