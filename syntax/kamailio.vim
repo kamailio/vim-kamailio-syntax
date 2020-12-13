@@ -40,10 +40,14 @@ syn match	kamailioHashDefine	'#!define\s\|#!ifdef\s\|#!ifndef\s\|#!endif\|#!else
 syn match	kamailioHashComment	'#[^!].*$\|#$' contains=kamailioTodo
 syn match	kamailioSlashSlashComment	'//.*$\|//#$' contains=kamailioTodo
 
-syn match	kamailioStringEscape	'\\.' contained
-syn match	kamailioNumber			'[0-9]\+' contained
-syn region	kamailioString			matchgroup=Normal start='"' skip='\\"' end='"' contained contains=kamailioVariable,kamailioStringEscape
 syn match	kamailioVariable		"$[a-zA-Z_][a-zA-Z0-9_]*\(([^)]\+)\)\?" contained
+
+syn match	kamailioStringEscape	'\\.' contained
+syn keyword	kamailioSIPMethods		INVITE ACK BYE CANCEL REGISTER MESSAGE PRACK INFO UPDATE OPTIONS REFER SUBSCRIBE NOTIFY PUBLISH KDMQ contained
+syn keyword	kamailioHTTPMethods		GET POST PUT DETELE contained
+syn keyword	kamailioSIPHeaders		SIP sip From To Call-Id CSeq Route Record-Route Contact Expires Content-Length Content-Type Authorization Proxy-Authorization Via contained
+syn match	kamailioNumber			'[0-9]\+' contained
+syn region	kamailioString			matchgroup=Normal start='"' skip='\\"' end='"' contained contains=kamailioVariable,kamailioStringEscape,kamailioSIPMethods,kamailioHTTPMethods,kamailioSIPHeaders
 syn match	kamailioIdentifier		'[a-zA-Z_][a-zA-Z0-9_]*' contained
 syn keyword	kamailioStatement	route if else switch case default break exit return drop while include_file import_file contained
 syn keyword	kamailioSpecial			yes no on off true false enabled disabled LOG_LOCAL0 LOG_LOCAL1 LOG_LOCAL2 LOG_LOCAL3 LOG_LOCAL4 LOG_LOCAL5 LOG_LOCAL6 LOG_LOCAL7 contained
@@ -98,5 +102,8 @@ hi def link kamailioNumber Number
 hi def link kamailioVariable Identifier
 hi def link kamailioString String
 hi def link kamailioStringEscape Special
+hi def link kamailioSIPMethods Special
+hi def link kamailioHTTPMethods Special
+hi def link kamailioSIPHeaders Special
 
 let b:current_syntax = "kamailio"
