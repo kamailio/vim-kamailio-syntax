@@ -28,7 +28,7 @@ syn match	kamailioConfigParamLine	'^[^=]\+=.*$' contains=kamailioCoreParameter,k
 syn region	kamailioConfigModparam	start='^\s*modparam\s*(' end=')' contains=kamailioString,kamailioNumber
 syn match	kamailioConfigModule		'^\s*loadmodule\s*"[^"]\+"' contains=kamailioString
 
-syn keyword	kamailioTodo	TODO FIXME XXX contained
+syn keyword	kamailioTodo	TODO FIXME XXX NOTE IMPORTANT contained
 
 syn match	kamailioOperator		'!\|&&\|||\|=[~=]\?\|>\|<\|+\|-\|/\|\*\||\|&\|^\|\~' display contained
 
