@@ -51,7 +51,8 @@ syn region	kamailioTransformation	matchgroup=Identifier start='\({s\.\|{uri\.\|{
 syn match	kamailioStringEscape	'\\.' contained
 syn keyword	kamailioSIPMethods		INVITE ACK BYE CANCEL REGISTER MESSAGE PRACK INFO UPDATE OPTIONS REFER SUBSCRIBE NOTIFY PUBLISH KDMQ contained
 syn keyword	kamailioHTTPMethods		GET POST PUT DETELE contained
-syn keyword kamailioSIPHeaders		SIP sip From To Call-Id CSeq Route Record-Route Contact Expires Content-Length Content-Type Authorization Proxy-Authorization Via contained
+syn keyword	kamailioSIPHeaders		SIP sip From To CSeq Route Contact Expires Authorization Via contained
+syn match	kamailioSIPHeaders		'\<Call-Id\>\|\<Record-Route\>\|\<Content-Length\>\|\<Content-Type\>\|\<Proxy-Authorization\>' contained
 syn region	kamailioString			matchgroup=Normal start='"' skip='\\"' end='"' contained contains=kamailioVariable,kamailioVariableGroup,kamailioStringEscape,kamailioSIPMethods,kamailioHTTPMethods,kamailioSIPHeaders
 syn match	kamailioIdentifier		'[a-zA-Z_][a-zA-Z0-9_]*' contained
 syn keyword	kamailioStatement	route if else switch case default break exit return drop while include_file import_file contained
