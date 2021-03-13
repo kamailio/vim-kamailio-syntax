@@ -25,8 +25,8 @@ if exists("b:current_syntax")
 endif
 
 syn match	kamailioConfigParamLine	'^[^=]\+=.*$' contains=kamailioCoreParameter,kamailioString,kamailioConfigConstant,kamailioSpecial,kamailioNumber,kamailioCppComment,kamailioHashComment,kamailioSlashSlashComment
-syn region	kamailioConfigModparam	start='^\s*modparam\s*(' end=')' contains=kamailioString,kamailioNumber
-syn match	kamailioConfigModule		'^\s*loadmodule\s*"[^"]\+"' contains=kamailioString
+syn region	kamailioConfigModparam	start='^\s*modparam\(x\)\?\s*(' end=')' contains=kamailioString,kamailioNumber
+syn match	kamailioConfigModule		'^\s*loadmodule\(x\)\?\s*"[^"]\+"' contains=kamailioString
 
 syn keyword	kamailioTodo	TODO FIXME XXX NOTE IMPORTANT contained
 
