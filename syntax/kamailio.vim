@@ -37,7 +37,7 @@ syn match	kamailioOperator		'!\|&&\|||\|=[~=]\?\|>\|<\|+\|-\|/\|\*\||\|&\|^\|\~'
 syn keyword	kamailioOperatorWord  defined eq ieq ne ine mod and or not contained
 
 syn region	kamailioCppComment		start='/\*' end='\*/' contains=kamailioTodo
-syn match	kamailioHashDefine	'#!define\s\|#!ifdef\s\|#!ifndef\s\|#!endif\|#!else\|#!substdef\|#!substdefs\|#!subst\|#!trydef\|#!trydefine\|#!redef\|#!redefine\|#!defenv\|!!define\s\|!!ifdef\s\|!!ifndef\s\|!!endif\|!!else\|!!substdef\|!!substdefs\|!!subst\|!!trydef\|!!trydefine\|!!redef\|!!redefine\|!!defenv\|#!KAMAILIO\|#!OPENSER\|#!SER\|#!MAXCOMPAT\|#!ALL\|#!include_file\|#!import_file\|!!include_file\|!!import_file\|include_file\|import_file'
+syn match	kamailioHashDefine	'#!define\s\|#!ifdef\s\|#!ifndef\s\|#!endif\|#!else\|#!substdef\|#!substdefs\|#!subst\|#!trydef\|#!trydefine\|#!redef\|#!redefine\|#!defenv\|#!defenvs\|!!define\s\|!!ifdef\s\|!!ifndef\s\|!!endif\|!!else\|!!substdef\|!!substdefs\|!!subst\|!!trydef\|!!trydefine\|!!redef\|!!redefine\|!!defenv\|!!defenvs\|#!KAMAILIO\|#!OPENSER\|#!SER\|#!MAXCOMPAT\|#!ALL\|#!include_file\|#!import_file\|!!include_file\|!!import_file\|include_file\|import_file'
 " syn match	kamailioHashDefine	'^\s*#!.+$'
 syn match	kamailioHashComment	'#[^!].*$\|#$' contains=kamailioTodo
 syn match	kamailioSlashSlashComment	'//.*$\|//#$' contains=kamailioTodo
@@ -60,7 +60,7 @@ syn keyword	kamailioSpecial			yes no on off true false enabled disabled LOG_LOCA
 
 syn keyword	kamailioCoreKeyword	af dst_ip dst_port from_uri method msg:len proto status snd_af snd_ip snd_port snd_proto src_ip src_port to_af to_ip to_port to_proto to_uri uri uri:host uri:port contained
 
-syn keyword kamailioCoreValue		udp UDP tcp TCP tls TLS sctp SCTP ws WS wss WSS inet INET inet6 INET6 sslv23 SSLv23 SSLV23 sslv2 SSLv2 SSLV2 sslv3 SSLv3 SSLV3 tlsv1 TLSv1 TLSV1 max_len myself contained
+syn keyword kamailioCoreValue		udp UDP tcp TCP tls TLS sctp SCTP ws WS wss WSS inet INET ipv4 IPv4 IPV4 inet6 INET6 ipv6 IPv6 IPV6 sslv23 SSLv23 SSLV23 sslv2 SSLv2 SSLV2 sslv3 SSLv3 SSLV3 tlsv1 TLSv1 TLSV1 tlsv1.0 TLSv1.0 TLSV1.0 tlsv1.1 TLSv1.1 TLSV1.1 tlsv1.2 TLSv1.2 TLSV1.2 max_len myself contained
 
 syn keyword	kamailioCoreFunction	forward forward_tcp forward_udp forward_tls forward_sctp send send_tcp log error exec force_rport add_rport local_rport force_tcp_alias add_tcp_alias udp_mtu udp_mtu_try_proto setflag resetflag isflagset flags bool setavpflag resetavpflag isavpflagset avpflags rewritehost sethost seth rewritehostport sethostport sethp rewritehostporttrans sethostporttrans sethpt rewriteuser setuser setu rewriteuserpass setuserpass setup rewriteport setport setp rewriteuri seturi revert_uri prefix strip strip_tail selval userphone contained
 syn keyword	kamailioCoreParameter append_branch set_advertised_address set_advertised_port force_send_socket remove_branch clear_branches cfg_select cfg_reset contained
