@@ -6,10 +6,10 @@ func! s:cfgType()
       if getline(n) =~ '^\s*#!\(KAMAILIO\|OPENSER\|SER\|ALL\|MAXCOMPAT\)'
          set filetype=kamailio
          return
-      elseif getline(n) =~ '^\s*#!\(define\|ifdef\|endif\|subst\|substdef\)'
+      elseif getline(n) =~ '^\s*#!\(define\|ifdef\|ifndef\|endif\|subst\|substdef\)'
          set filetype=kamailio
          return
-      elseif getline(n) =~ '^\s*!!\(define\|ifdef\|endif\|subst\|substdef\)'
+      elseif getline(n) =~ '^\s*!!\(define\|ifdef\|ifndef\|endif\|subst\|substdef\)'
          set filetype=kamailio
          return
       elseif getline(n) =~ '^\s*modparam\s*(\s*"[^"]\+"'
