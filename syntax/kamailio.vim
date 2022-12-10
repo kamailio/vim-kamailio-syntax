@@ -27,6 +27,7 @@ endif
 syn match	kamailioConfigParamLine	'^[^=]\+=.*$' contains=kamailioCoreParameter,kamailioString,kamailioConfigConstant,kamailioSpecial,kamailioNumber,kamailioCppComment,kamailioHashComment,kamailioSlashSlashComment
 syn region	kamailioConfigModparam	start='^\s*modparam\(x\)\?\s*(' end=')' contains=kamailioString,kamailioNumber
 syn match	kamailioConfigModule		'^\s*loadmodule\(x\)\?\s*"[^"]\+"' contains=kamailioString
+syn region	kamailioConfigModuleParam	start='^\s*loadmodule\(x\)\?\s*(' end=')'  contains=kamailioString
 
 syn keyword	kamailioTodo	TODO FIXME XXX NOTE IMPORTANT contained
 
@@ -88,6 +89,7 @@ hi def link kamailioTodo Todo
 
 hi def link kamailioConfigModparam Function
 hi def link kamailioConfigModule Keyword
+hi def link kamailioConfigModuleParam Keyword
 
 hi def link kamailioKeyword Keyword
 hi def link kamailioCoreKeyword Special
