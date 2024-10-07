@@ -63,7 +63,10 @@ syn keyword	kamailioCoreKeyword	af dst_ip dst_port from_uri method msg:len proto
 
 syn keyword kamailioCoreValue		udp UDP tcp TCP tls TLS sctp SCTP ws WS wss WSS inet INET ipv4 IPv4 IPV4 inet6 INET6 ipv6 IPv6 IPV6 sslv23 SSLv23 SSLV23 sslv2 SSLv2 SSLV2 sslv3 SSLv3 SSLV3 tlsv1 TLSv1 TLSV1 tlsv1.0 TLSv1.0 TLSV1.0 tlsv1.1 TLSv1.1 TLSV1.1 tlsv1.2 TLSv1.2 TLSV1.2 max_len myself contained
 
-syn keyword	kamailioCoreFunction	forward forward_tcp forward_udp forward_tls forward_sctp send send_tcp log error exec force_rport add_rport local_rport force_tcp_alias add_tcp_alias udp_mtu udp_mtu_try_proto setflag resetflag isflagset flags bool setavpflag resetavpflag isavpflagset avpflags rewritehost sethost seth rewritehostport sethostport sethp rewritehostporttrans sethostporttrans sethpt rewriteuser setuser setu rewriteuserpass setuserpass setup rewriteport setport setp rewriteuri seturi revert_uri prefix strip strip_tail selval userphone contained
+syn keyword	kamailioCoreFunction	forward forward_tcp forward_udp forward_tls forward_sctp send send_tcp log error exec force_rport add_rport local_rport force_tcp_alias add_tcp_alias udp_mtu udp_mtu_try_proto setflag resetflag isflagset flags bool setavpflag resetavpflag isavpflagset avpflags contained
+
+syn keyword	kamailioCoreFunction	rewritehost sethost seth rewritehostport sethostport sethp rewritehostporttrans sethostporttrans sethpt rewriteuser setuser setu rewriteuserpass setuserpass setup rewriteport setport setp rewriteuri seturi revert_uri prefix strip strip_tail selval userphone contained
+
 syn keyword	kamailioCoreParameter append_branch set_advertised_address set_advertised_port force_send_socket remove_branch clear_branches cfg_select cfg_reset contained
 
 syn keyword	kamailioCoreParameter	debug fork log_stderror log_facility log_name log_color log_prefix log_prefix_mode listen alias auto_aliases dns rev_dns dns_rev_via dns_try_ipv6 dns_try_naptr dns_srv_lb dns_srv_loadbalancing dns_udp_pref dns_udp_preference dns_tcp_pref dns_tcp_preference dns_tls_pref dns_tls_preference dns_sctp_pref dns_sctp_preference dns_retr_time dns_retr_no dns_servers_no dns_use_search_list dns_search_full_match sip_parser_log_oneline contained
