@@ -24,14 +24,15 @@ if exists("b:current_syntax")
 	finish
 endif
 
-syn match	kamailioConfigParamLine	'^[^=]\+=.*$' contains=kamailioCoreParameter,kamailioString,kamailioConfigConstant,kamailioSpecial,kamailioNumber,kamailioCppComment,kamailioHashComment,kamailioSlashSlashComment
-syn region	kamailioConfigModparam	start='^\s*modparam\(x\)\?\s*(' end=')' contains=kamailioString,kamailioNumber
+syn match	kamailioConfigParamLine	'^[^=]\+=.*$' contains=kamailioCoreParameter,kamailioString,kamailioConfigConstant,kamailioSpecial,kamailioNumber,kamailioHexNumber,kamailioCppComment,kamailioHashComment,kamailioSlashSlashComment
+syn region	kamailioConfigModparam	start='^\s*modparam\(x\)\?\s*(' end=')' contains=kamailioString,kamailioNumber,kamailioHexNumber
 syn match	kamailioConfigModule		'^\s*loadmodule\(x\)\?\s*"[^"]\+"' contains=kamailioString
 syn region	kamailioConfigModuleParam	start='^\s*loadmodule\(x\)\?\s*(' end=')'  contains=kamailioString
 
 syn keyword	kamailioTodo	TODO FIXME XXX NOTE IMPORTANT contained
 
 syn match	kamailioNumber			'[0-9]\+' contained
+syn match	kamailioHexNumber			'0x[0-9a-zA-Z]\+' contained
 
 syn match	kamailioOperator		'!\|&&\|||\|=[~=]\?\|>\|<\|+\|-\|/\|\*\||\|&\|^\|\~' display contained
 
@@ -47,7 +48,7 @@ syn match   kamailioVariable        "$[a-zA-Z_][a-zA-Z0-9_]*\(([^)]\+)\)\?" cont
 syn match   kamailioVariableIndex   "\[[0-9+*-]\+\]" contained
 syn region	kamailioVariableGroup	matchgroup=Identifier start='$([a-zA-Z_][a-zA-Z0-9_]*\(([^)]\+)\)\?' end=')' transparent contained contains=kamailioVariableIndex,kamailioVariable,kamailioVariableGroup,kamailioTransformation
 syn match	kamailioTransformationChars "[a-zA-Z_,#;:-]" contained
-syn region	kamailioTransformation	matchgroup=Identifier start='\({s\.\|{uri\.\|{param\.\|{tobody\.\|{nameaddr\.\|{re\.\|{sql\.\|{url\.\|{line\.\|{msrpuri\.\)[a-zA-Z0-9_-]\+' end='}' transparent contained contains=kamailioNumber,kamailioVariable,kamailioVariableGroup,kamailioTransformationChars,kamailioTransformation
+syn region	kamailioTransformation	matchgroup=Identifier start='\({s\.\|{uri\.\|{param\.\|{tobody\.\|{nameaddr\.\|{re\.\|{sql\.\|{url\.\|{line\.\|{msrpuri\.\)[a-zA-Z0-9_-]\+' end='}' transparent contained contains=kamailioNumber,kamailioHexNumber,kamailioVariable,kamailioVariableGroup,kamailioTransformationChars,kamailioTransformation
 
 syn match	kamailioStringEscape	'\\.' contained
 syn keyword	kamailioSIPMethods		INVITE ACK BYE CANCEL REGISTER MESSAGE PRACK INFO UPDATE OPTIONS REFER SUBSCRIBE NOTIFY PUBLISH KDMQ contained
@@ -80,10 +81,10 @@ syn keyword	kamailioCoreParameter	tcp_msg_read_timeout tcp_check_timer tcp_msg_d
 
 syn region	kamailioBlock	start='{' end='}' transparent contained contains=kamailioBlock,@kamailioCodeElements
 
-syn match	kamailioRouteBlock	'\(failure_\|onreply_\|branch_\|event_\|onsend_\|request_\|reply_\)\?route\(\s*\[[^\]]\+\]\)\?' contained contains=kamailioNumber,kamailioString,kamailioIdentifier
+syn match	kamailioRouteBlock	'\(failure_\|onreply_\|branch_\|event_\|onsend_\|request_\|reply_\)\?route\(\s*\[[^\]]\+\]\)\?' contained contains=kamailioNumber,kamailioHexNumber,kamailioString,kamailioIdentifier
 syn region	kamailioRrouteBlockFold	matchgroup=kamailioRouteBlock start="\(failure_\|onreply_\|branch_\|event_\|onsend_\|request_\|reply_\)\?route\(\s*\[[^\]]\+\]\)\?\s*\n\?{" matchgroup=NONE end="}" contains=kamailioBlock,@kamailioCodeElements
 
-syn cluster	kamailioCodeElements contains=kamailioHashDefine,kamailioCppComment,kamailioHashComment,kamailioSlashSlashComment,kamailioNumber,kamailioString,kamailioVariable,kamailioVariableGroup,kamailioOperator,kamailioOperatorWord,kamailioStatement,kamailioKeyword,kamailioCoreKeyword,kamailioCoreValue,kamailioCoreFunction,kamailioIdentifier
+syn cluster	kamailioCodeElements contains=kamailioHashDefine,kamailioCppComment,kamailioHashComment,kamailioSlashSlashComment,kamailioNumber,kamailioHexNumber,kamailioString,kamailioVariable,kamailioVariableGroup,kamailioOperator,kamailioOperatorWord,kamailioStatement,kamailioKeyword,kamailioCoreKeyword,kamailioCoreValue,kamailioCoreFunction,kamailioIdentifier
 
 hi def link kamailioCppComment Comment
 hi def link kamailioHashComment Comment
@@ -117,6 +118,7 @@ hi def link kamailioTransformationChars Identifier
 hi def link kamailioTransformation Function
 
 hi def link kamailioNumber Number
+hi def link kamailioHexNumber Number
 hi def link kamailioString String
 hi def link kamailioStringEscape Special
 hi def link kamailioSIPMethods Special
